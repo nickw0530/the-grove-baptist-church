@@ -36,8 +36,9 @@ test('homepage loads its viewing area and artwork without runtime errors or hori
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Worship with us.Wherever you are.');
   await expect(page.locator('.service-viewer')).toBeVisible();
   const image = page.locator('.art-frame img');
+  await image.scrollIntoViewIfNeeded();
   await expect(image).toBeVisible();
-  expect(await image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+  await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   expect(errors).toEqual([]);
 });

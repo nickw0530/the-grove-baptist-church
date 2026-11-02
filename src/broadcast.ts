@@ -1,6 +1,6 @@
 export const boxcastChannel = 'rs1sn7iap6fgcn3nn8as';
 
-// Options supplied in the church's BoxCast embed code.
+// Supplied embed options, with chat hidden to keep the archive beside the screen.
 export const boxcastOptions = {
   showTitle: 1,
   showDescription: 1,
@@ -14,7 +14,7 @@ export const boxcastOptions = {
   showDonations: true,
   showDocuments: true,
   showIndex: true,
-  showChat: true,
+  showChat: false,
   hidePreBroadcastTextOverlay: false,
   layout: 'playlist-to-right',
 };

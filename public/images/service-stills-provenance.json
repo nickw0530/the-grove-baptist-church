@@ -1,0 +1,50 @@
+[
+  {
+    "file": "grove-worship-singers.webp",
+    "source_page": "https://boxcast.tv/view/sunday-live-stream-pdmthcd5aivtojdn08ps",
+    "source_title": "Sunday Live Stream",
+    "source_service_start_utc": "2025-04-20T14:25:00Z",
+    "recording_offset_seconds": 5700,
+    "recording_offset_hms": "01:35:00",
+    "description": "Two church members singing during worship, with the sanctuary and flowers visible.",
+    "width": 1600,
+    "height": 900,
+    "processing": "Extracted actual video frame; resized and encoded as WebP. No generative alteration."
+  },
+  {
+    "file": "grove-easter-message.webp",
+    "source_page": "https://boxcast.tv/view/sunday-live-stream-pdmthcd5aivtojdn08ps",
+    "source_title": "Sunday Live Stream",
+    "source_service_start_utc": "2025-04-20T14:25:00Z",
+    "recording_offset_seconds": 6000,
+    "recording_offset_hms": "01:40:00",
+    "description": "A speaker delivering an Easter message from the wooden pulpit.",
+    "width": 1600,
+    "height": 900,
+    "processing": "Extracted actual video frame; resized and encoded as WebP. No generative alteration."
+  },
+  {
+    "file": "grove-weekly-message.webp",
+    "source_page": "https://boxcast.tv/view/weekly-live-stream-qgqhnqxinatj3lull60m",
+    "source_title": "Weekly Live Stream",
+    "source_service_start_utc": "2026-10-25T14:30:00Z",
+    "recording_offset_seconds": 4500,
+    "recording_offset_hms": "01:15:00",
+    "description": "A speaker teaching from the wooden pulpit during the weekly service.",
+    "width": 1600,
+    "height": 900,
+    "processing": "Extracted actual video frame; resized and encoded as WebP. No generative alteration."
+  },
+  {
+    "file": "grove-sanctuary-background.webp",
+    "source_page": "https://boxcast.tv/view/sunday-live-stream-pdmthcd5aivtojdn08ps",
+    "source_title": "Sunday Live Stream",
+    "source_service_start_utc": "2025-04-20T14:25:00Z",
+    "recording_offset_seconds": 5400,
+    "recording_offset_hms": "01:30:00",
+    "description": "A wide view of the sanctuary pulpit, speaker, and Easter flowers.",
+    "width": 1600,
+    "height": 900,
+    "processing": "Extracted actual video frame; resized and encoded as WebP. No generative alteration."
+  }
+]

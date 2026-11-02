@@ -34,8 +34,9 @@ Set `CHROMIUM_PATH` for another system Chromium, or run
 `npx playwright install --with-deps chromium` if no system Chromium is available.
 
 For a local production check, run `npm run preview -- --port 4174 --strictPort`
-after building. The homepage and `/grove-landscape.svg` should both respond with
-HTTP 200. Check that the page title names The Grove Baptist Church.
+after building. The homepage, `/images/grove-logo.png`, and
+`/images/grove-worship-singers.webp` should respond with HTTP 200. Check that the
+page title names The Grove Baptist Church.
 
 ## Church information
 
@@ -47,46 +48,66 @@ Directions and contact links appear automatically when configured. If a detail i
 removed, the site describes it as unconfirmed rather than inventing a replacement.
 
 The homepage’s general welcome and faith statements are draft copy. Have church
-leadership review them before announcing the website. The illustration is original
-artwork, not a photograph of the church building. The previously invented logo
-has been removed from the header, footer, and browser icon. A text wordmark is
-used until the owner reattaches the original logo.
+leadership review them before announcing the website. The owner reattached the
+real logo; a matching published copy was obtained from the church's BoxCast
+account at:
+https://uploads.boxcast.com/gvaxxrzx9gsmg5rjhe67/2026-01/lwp0dvugjia6ekmukmtu/The_Grove.png
+
+The logo is stored unchanged at `public/images/grove-logo.png` and used in the
+header, footer, and browser icon. Layout styles crop its outer padding. The
+welcome image and background are real stills from the supplied service videos.
 
 ## Live and previous services
 
 `src/broadcast.ts` loads the supplied `https://js.boxcast.com/v3.min.js` widget
-for channel `rs1sn7iap6fgcn3nn8as`. All original embed options are preserved,
+for channel `rs1sn7iap6fgcn3nn8as`. The supplied embed options are retained,
 including `playlist-to-right`, related broadcasts, the next-video default,
-countdown, DVR, descriptions, documents, donations, and chat. The player and its
-playlist appear before the welcome and visit sections. No sample episodes,
-invented video titles, or static mock broadcasts are included in the website.
+countdown, DVR, descriptions, documents, and donations. Chat is hidden because
+its empty panel pushed the archive below the screen; the previous-service
+playlist now sits immediately beside the video. The player and playlist appear
+before the welcome and visit sections. No sample episodes, invented video titles,
+or static mock broadcasts are included in the website.
 
 If the provider script fails or takes too long to initialize, visitors get a
 readable fallback and a Facebook watch link. Facebook links remain available
 alongside the player. The owner plans to forward `.net` to `.com`, so no video
 links use `.net`.
 
-Local tests verify our provider integration and fallback with a test stub. Real
-playback has not yet been checked: the cloud proxy rejected CONNECT to BoxCast
-with HTTP 403. Allowlist additions for `js.boxcast.com`, `api.boxcast.com`, and
-`boxcast.tv` are saved in the environment draft and must be applied through
-environment settings before checking the actual provider. Further media/CDN
-destinations may be discovered after the provider page can be read. Do not bypass
-the proxy or treat the mocked browser checks as proof of video playback.
+Local tests verify our provider integration and fallback with a test stub. The
+owner subsequently enabled cloud Internet access, so the actual BoxCast script,
+channel and broadcast APIs, public recording pages, and video segments could be
+retrieved. In an unmocked browser, a November 1, 2026 archived service was selected
+from the real playlist and played muted for 3.48 seconds. Video metadata,
+manifests, and media segments loaded successfully; the video reached readyState 4
+and its playback time advanced. No page errors or failed requests were observed.
+The actual playlist appears beside the video on desktop and below it on a 390px
+phone layout without horizontal overflow. No service was live during this check,
+so a currently-live broadcast was not exercised. Recheck playback after Netlify
+deployment; do not substitute mocked browser checks for real playback evidence.
 
 The owner supplied these videos for extracting genuine still frames:
 
 - https://boxcast.tv/view/weekly-live-stream-qgqhnqxinatj3lull60m
 - https://boxcast.tv/view/sunday-live-stream-pdmthcd5aivtojdn08ps
 
-No video or stills have been downloaded because the proxy also blocks the video
-pages. Once access works, use FFmpeg to extract representative wide frames and
-optimize them for the web. Use subdued backgrounds with readable foreground text;
-do not substitute generated pictures for actual stills.
+Four real 1600×900 frames were extracted with FFmpeg from short HLS segments and
+optimized as WebP (about 53–93 KB each). `public/images/service-stills-provenance.json`
+records exact source pages, recording dates, and frame timestamps. Lyric slides
+and film footage were excluded. The welcome photo, background, and featured
+archive cards use real church scenes. The background has a strong cream overlay
+to keep foreground text readable.
 
 There are no first-party mailing-list, contact-submission, analytics, or donation
 services. The supplied third-party BoxCast player may provide its own interactive
 features and process visitor data under the provider's policies.
+
+## Continue in Mosaic Minds Media
+
+`HANDOFF.md` contains the project brief, decisions, real asset sources, known
+church details, and remaining hosting/domain work. Upload that document and the
+source ZIP provided in the chat into a new conversation in the Mosaic Minds Media
+ChatGPT project. Repository access and account connections do not automatically
+transfer between chats.
 
 ## Publish the website
 
