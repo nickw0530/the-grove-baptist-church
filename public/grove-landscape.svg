@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1050" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="632" y1="0" x2="632" y2="1024" gradientUnits="userSpaceOnUse"><stop stop-color="#E9DCC0"/><stop offset=".54" stop-color="#F4ECD8"/><stop offset="1" stop-color="#D5D4A7"/></linearGradient>
+    <linearGradient id="hill" x1="681" y1="414" x2="476" y2="1050" gradientUnits="userSpaceOnUse"><stop stop-color="#A9AC7D"/><stop offset="1" stop-color="#78845D"/></linearGradient>
+    <linearGradient id="field" x1="693" y1="647" x2="594" y2="1049" gradientUnits="userSpaceOnUse"><stop stop-color="#D2BD83"/><stop offset="1" stop-color="#ABB183"/></linearGradient>
+    <linearGradient id="wall" x1="441" y1="479" x2="720" y2="736" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFCED"/><stop offset="1" stop-color="#DACEAE"/></linearGradient>
+    <linearGradient id="roof" x1="448" y1="477" x2="673" y2="566" gradientUnits="userSpaceOnUse"><stop stop-color="#6E7865"/><stop offset="1" stop-color="#3D5146"/></linearGradient>
+    <linearGradient id="tree" x1="146" y1="250" x2="379" y2="789" gradientUnits="userSpaceOnUse"><stop stop-color="#647654"/><stop offset="1" stop-color="#2B4837"/></linearGradient>
+    <linearGradient id="foreground" x1="831" y1="803" x2="713" y2="1120" gradientUnits="userSpaceOnUse"><stop stop-color="#35513B"/><stop offset="1" stop-color="#233C2F"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".64" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".11"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+    <pattern id="siding" width="12" height="15" patternUnits="userSpaceOnUse"><path d="M0 14.5H12" stroke="#A99E80" stroke-opacity=".22"/></pattern>
+    <g id="window"><path d="M0 24C0 10 8 0 17 0S34 10 34 24V76H0Z" fill="#60766B"/><path d="M6 25C6 14 10 6 17 6S28 14 28 25V70H6Z" fill="#899B8A"/><path d="M17 6V70M6 36H28" stroke="#EAE4CD" stroke-width="3"/><path d="M-4 77H38" stroke="#D3C8A8" stroke-width="6"/></g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0H1200V1050H0Z"/>
+  <circle cx="846" cy="226" r="103" fill="#E1BB72" opacity=".75"/>
+  <circle cx="846" cy="226" r="119" stroke="#EBD4A5" stroke-width="1.5" opacity=".8"/>
+  <path d="M0 426C140 418 210 362 363 367C517 372 534 426 698 416C897 404 1019 337 1200 359V1050H0Z" fill="#BEC1A1"/>
+  <path d="M0 521C221 463 336 440 482 463C673 493 724 542 893 494C1033 454 1101 438 1200 444V1050H0Z" fill="#AAB28A"/>
+  <path d="M0 577C145 534 261 571 386 613C539 665 705 601 838 555C998 500 1122 543 1200 558V1050H0Z" fill="url(#hill)"/>
+  <path d="M0 711C155 666 315 637 494 654C700 674 822 733 1003 658C1086 624 1143 623 1200 637V1050H0Z" fill="url(#field)"/>
+  <path d="M2 824C245 751 453 762 662 811C865 860 989 788 1200 762" stroke="#D5C591" stroke-width="3" opacity=".6"/>
+  <path d="M0 855C244 789 409 801 643 844C887 889 1021 822 1200 799" stroke="#C3B984" stroke-width="2" opacity=".6"/>
+  <path d="M1060 1050C1059 943 878 924 771 879C650 828 620 799 638 747L681 731C647 800 740 824 839 847C991 883 1192 942 1200 1050Z" fill="#E9D7AE"/>
+  <path d="M1102 1050C1090 942 865 902 783 865C698 827 654 801 661 762" stroke="#D3BF93" stroke-width="2"/>
+  <path d="M503 731C590 704 718 704 785 724C838 740 748 764 653 764C581 764 484 747 503 731Z" fill="#617354" opacity=".22"/>
+  <!-- A little country church, drawn as a place of welcome. -->
+  <path d="M458 560L625 467L795 565V712L623 757L458 703Z" fill="#C6B99A"/>
+  <path d="M625 467L795 565V712L625 757Z" fill="#DFD4B8"/>
+  <path d="M458 560L625 467V757L458 703Z" fill="url(#wall)"/>
+  <path d="M458 560L625 467V757L458 703Z" fill="url(#siding)"/>
+  <path d="M625 467L795 565V712L625 757Z" fill="url(#siding)"/>
+  <path d="M443 560L615 452L809 560L792 575L625 482L460 574Z" fill="url(#roof)"/>
+  <path d="M615 452L809 560L792 575L625 482Z" fill="#3F5247"/>
+  <path d="M445 561L615 454L808 561" stroke="#83907A" stroke-width="3"/>
+  <path d="M480 571L615 486L616 735L480 694Z" fill="#F5EFDC" opacity=".54"/>
+  <g transform="translate(512 576) scale(.85 1)"><use href="#window"/></g>
+  <g transform="translate(670 578) skewY(17) scale(.78 .9)"><use href="#window"/></g>
+  <g transform="translate(731 613) skewY(17) scale(.78 .9)"><use href="#window"/></g>
+  <path d="M564 744V668C564 652 574 639 587 638C600 638 611 650 611 665V756Z" fill="#526457"/>
+  <path d="M572 741V670C572 658 578 648 587 647C597 647 603 656 603 668V750Z" fill="#72816B"/>
+  <path d="M587 650V745" stroke="#B0B49B" stroke-width="2"/>
+  <circle cx="582" cy="711" r="2" fill="#E0C88E"/>
+  <path d="M553 743L614 755L612 763L550 752Z" fill="#A89F82"/>
+  <path d="M546 751L617 763V770L542 760Z" fill="#D6CCAC"/>
+  <path d="M595 541L608 535L623 542L610 551Z" fill="#C8B99A"/>
+  <!-- Bell tower and steeple. -->
+  <path d="M548 489V413L583 392L621 414V492L584 511Z" fill="#E8DFC6"/>
+  <path d="M548 413L583 392V511L548 489Z" fill="#F8F1DC"/>
+  <path d="M583 392L621 414V492L583 511Z" fill="#D4C9AA"/>
+  <path d="M543 416L583 390L628 416L622 423L583 401L548 423Z" fill="#EEE7D0"/>
+  <path d="M539 398L583 300L631 399L584 424Z" fill="#657260"/>
+  <path d="M583 300L631 399L584 424Z" fill="#3E5747"/>
+  <path d="M583 274V307M572 285H594" stroke="#415B47" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 443C560 433 564 426 570 425C576 425 580 430 580 441V476L560 466Z" fill="#647160"/>
+  <path d="M594 442C594 432 598 429 604 432C610 435 613 443 613 452V476L594 486Z" fill="#56694F"/>
+  <path d="M561 446L579 455M561 453L579 462M561 461L579 470" stroke="#E4DCC3" stroke-width="2"/>
+  <path d="M595 450L613 459M595 458L613 467M595 466L611 474" stroke="#BDB99D" stroke-width="2"/>
+  <path d="M546 489L583 511L623 492" stroke="#BDB497" stroke-width="3"/>
+  <!-- Tall trees form the grove around the church. -->
+  <path d="M311 707C309 615 308 524 281 461M307 618L343 552M299 561L260 516" stroke="#665F43" stroke-width="13" stroke-linecap="round"/>
+  <path d="M188 452C163 420 172 376 211 359C196 314 222 274 267 269C283 229 331 219 366 244C414 233 455 268 450 314C487 338 488 391 455 421C461 468 425 502 386 500C357 535 310 528 288 504C243 526 202 504 188 452Z" fill="url(#tree)"/>
+  <path d="M202 369C211 333 240 325 269 333C260 299 291 272 320 281C338 254 371 259 389 282C412 280 431 295 434 315C399 298 365 309 347 334C312 310 284 328 275 353C244 342 224 356 211 377Z" fill="#7E895E" opacity=".58"/>
+  <path d="M192 448C207 424 234 414 260 426C270 395 304 386 327 401C348 373 380 376 401 398C427 383 451 399 460 421C431 415 412 427 404 451C373 437 343 452 337 480C310 464 279 469 265 494C226 498 203 476 192 448Z" fill="#36513D" opacity=".42"/>
+  <path d="M305 671C308 635 304 591 300 554" stroke="#DBCCA2" stroke-width="2" opacity=".4"/>
+  <path d="M900 680C900 607 912 529 929 477M904 589L873 537M915 545L950 517" stroke="#6A6749" stroke-width="11" stroke-linecap="round"/>
+  <path d="M816 475C793 447 802 409 834 394C828 354 857 326 890 329C910 295 951 297 971 320C1012 309 1049 340 1044 375C1076 402 1070 445 1044 460C1050 505 1011 530 980 520C949 551 915 538 896 519C855 536 824 514 816 475Z" fill="#6D7C55"/>
+  <path d="M833 395C849 374 872 373 893 386C890 354 919 337 941 349C961 330 990 342 995 363C1018 356 1038 371 1045 390C1020 383 1004 393 997 412C971 396 949 407 939 426C913 408 887 422 878 439C851 435 836 419 833 395Z" fill="#8B9467"/>
+  <path d="M817 473C837 452 858 452 876 463C890 437 917 437 938 453C956 431 988 439 996 459C1014 446 1033 452 1046 464C1040 496 1012 513 985 505C960 532 932 522 917 501C885 519 851 509 838 488Z" fill="#536D48"/>
+  <path d="M1079 674V554M1078 617L1057 593M1080 598L1106 570" stroke="#666B4A" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1022 551C1024 530 1037 520 1053 521C1052 499 1073 484 1092 495C1116 489 1133 508 1128 527C1150 544 1146 570 1127 581C1121 605 1094 612 1078 598C1051 612 1022 591 1026 571C1014 566 1014 555 1022 551Z" fill="#819064"/>
+  <path d="M1075 580C1092 567 1116 575 1128 559" stroke="#627F52" stroke-width="16" stroke-linecap="round"/>
+  <!-- Hedgerows and small marks lend the illustration a printed feel. -->
+  <path d="M0 703C60 682 124 686 166 707C212 682 255 694 284 711C318 696 356 713 368 731C318 745 263 733 224 741C146 723 94 742 0 755Z" fill="#667B53"/>
+  <path d="M757 729C777 706 801 707 814 721C837 694 864 701 874 721C902 702 924 711 933 726C954 710 983 719 994 733C1051 713 1084 724 1098 747C1135 724 1171 732 1200 745V783C1088 793 1000 758 924 765C860 769 812 750 757 751Z" fill="#7B895B"/>
+  <path d="M55 842L69 821M73 846L82 829M247 801L257 781M266 802L271 790M400 863L411 844M424 865L430 850M849 799L857 785M870 802L875 791" stroke="#7E8B5E" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+  <path d="M105 908L119 880M125 910L131 892M366 949L379 923M389 952L397 932M974 949L982 930" stroke="#7C8C5C" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+  <path d="M0 981C104 928 207 929 286 980C330 955 399 958 451 995C513 966 583 987 617 1050H0Z" fill="#6B8058"/>
+  <path d="M751 1050C829 1004 914 1006 979 1023C1002 962 1070 940 1121 960C1158 914 1197 919 1230 927V1050Z" fill="url(#foreground)"/>
+  <path d="M0 982C29 926 47 840 37 755M37 861C67 830 88 801 99 765M36 833C17 805 9 782 0 763" stroke="#314D38" stroke-width="13" stroke-linecap="round"/>
+  <path d="M0 661C37 631 77 638 95 668C136 659 168 686 163 724C199 746 195 783 168 803C169 834 142 853 111 845C98 880 58 887 36 864C20 877 4 875 0 869Z" fill="#38533C"/>
+  <path d="M0 677C33 657 65 671 74 694C105 685 130 703 132 727C98 715 76 733 71 753C43 729 19 740 0 757Z" fill="#526B47"/>
+  <path d="M0 1042C53 989 123 1007 161 1050H0Z" fill="#39553D"/>
+  <path d="M74 1039L92 1014M93 1048L112 1021M282 1037L293 1018M298 1043L310 1029M1064 1028L1075 999M1080 1032L1097 1005" stroke="#A7AD7C" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+  <path d="M729 198C735 190 741 189 747 194C753 187 760 187 766 192M297 165C303 158 309 159 314 164C319 158 325 159 331 163" stroke="#7F896E" stroke-width="2.5" stroke-linecap="round" opacity=".65"/>
+  <path fill="#A38E61" opacity=".10" filter="url(#grain)" d="M0 0H1200V1050H0Z"/>
+</svg>
