@@ -1,5 +1,6 @@
 import './style.css';
 import { church } from './church';
+import { boxcastChannel, initializeBroadcast } from './broadcast';
 
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const externalArrow = '<svg class="external-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -12,29 +13,41 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#" aria-label="The Grove Baptist Church home">
-        <span class="brand-mark">${sprout}</span>
+
         <span class="brand-name">THE GROVE<span>BAPTIST CHURCH</span></span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false"><span></span><span></span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#about">Our heart</a>
         <a href="#watch">Watch online</a>
-        <a href="#visit">Visit us</a>
+        <a href="#episodes">Previous services</a>
+        <a href="#about">Our heart</a>
         <a class="button button-small" href="#visit">Plan your visit ${arrow}</a>
       </nav>
     </div>
   </header>
   <main id="main">
+    <section id="watch" class="broadcast-section" aria-labelledby="watch-heading">
+      <div class="container">
+        <div class="broadcast-intro"><div><p class="eyebrow">THE GROVE BAPTIST CHURCH · WHITELAND, INDIANA</p><h1 id="watch-heading">Worship with us.<br><em>Wherever you are.</em></h1></div><p>Join a live service or choose a previous message. A place to pause, listen, and grow in faith—right where you are.</p></div>
+        <div class="service-viewer" aria-label="Live and previous services">
+          <div id="boxcast-widget-${boxcastChannel}" class="boxcast-player"></div>
+          <div id="player-loading" class="player-loading" role="status"><span class="loading-ring" aria-hidden="true"></span><p>Loading live and previous services…</p></div>
+          <div id="player-fallback" class="player-fallback" hidden><span class="screen-play" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="m12 8 12 8-12 8V8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><h2>Stay connected to The Grove.</h2><p>The video player couldn’t load.<br>You can still watch our services on Facebook.</p><a class="button button-light" href="https://www.facebook.com/ingrovechurch">Watch on Facebook ${externalArrow}</a></div>
+        </div>
+        <div class="viewer-toolbar"><p><span class="calendar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16"/></svg></span><span>Sunday worship<strong>10:30 am Eastern</strong></span></p><a class="text-link" href="#episodes">Explore previous services ${arrow}</a><a class="facebook-backup" href="https://www.facebook.com/ingrovechurch">Watch on Facebook ${externalArrow}</a></div>
+      </div>
+    </section>
+    <section id="episodes" class="episodes-section container" aria-labelledby="episodes-heading"><div><p class="eyebrow">KEEP THE MESSAGE WITH YOU</p><h2 id="episodes-heading">Previous services</h2><p>Missed a Sunday, or want to listen again? Choose a past service from the playlist in the player above.</p></div><div class="episode-actions"><a class="button" href="#watch">View the service playlist ${arrow}</a><a class="text-link" href="https://www.facebook.com/ingrovechurch/videos/">Browse previous services ${externalArrow}</a><span>Also available in our Facebook video library</span></div></section>
     <section class="hero container" aria-labelledby="hero-heading">
       <div class="hero-copy">
         <div class="eyebrow"><span class="small-line"></span> ROOTED IN FAITH. GROWING IN LOVE.</div>
-        <h1 id="hero-heading">A place to belong.<br>A faith to <em>grow.</em></h1>
+        <h2 id="hero-heading">A place to belong.<br>A faith to <em>grow.</em></h2>
         <p class="hero-description">There’s room for you here. Discover a community centered on Jesus, grounded in His Word, and growing together in love.</p>
         <div class="hero-actions"><a class="button" href="#visit">Come as you are ${arrow}</a><a class="text-link" href="https://www.facebook.com/ingrovechurch">Watch online ${externalArrow}</a></div>
         <div class="hero-note"><span class="note-sun" aria-hidden="true">✳</span><span id="hero-service-times">A new beginning. A deeper connection.<br><strong>A place to call your church home.</strong></span></div>
       </div>
       <div class="hero-art">
-        <div class="art-frame"><img src="/grove-landscape.svg" alt="An illustration of a white church nestled among green trees and rolling hills in the warm sunlight" width="1200" height="1050" fetchpriority="high"><div class="art-caption"><span class="caption-dot"></span> FAITH. FAMILY. COMMUNITY.</div></div>
+        <div class="art-frame"><img src="/grove-landscape.svg" alt="An illustration of a white church nestled among green trees and rolling hills in the warm sunlight" width="1200" height="1050" loading="lazy"><div class="art-caption"><span class="caption-dot"></span> FAITH. FAMILY. COMMUNITY.</div></div>
         <div class="verse-tag"><span class="tiny-leaf">${sprout}</span><span>“I am the vine,<br>you are the branches.”<small>JOHN 15:5</small></span></div>
         <span class="art-coordinate">A LITTLE FAITH. DEEP ROOTS.</span>
       </div>
@@ -52,7 +65,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="life-quote"><span class="quote-decoration" aria-hidden="true">“</span><blockquote>Let all that you do<br>be done in <em>love.</em></blockquote><p>1 CORINTHIANS 16:14</p><span class="quote-branch" aria-hidden="true">${sprout}</span></div>
       <div class="life-copy"><p class="eyebrow">LIFE AT THE GROVE</p><h2 id="life-heading">Find connection.<br><em>Grow with purpose.</em></h2><p>A Sunday gathering is a beginning. Following Jesus is a way of life, built through worship, meaningful relationships, and everyday opportunities to serve.</p><div class="life-list"><div><span>01</span><p><strong>Worship together</strong>Make room to pause, pray, and turn your heart toward God.</p></div><div><span>02</span><p><strong>Walk alongside one another</strong>Share your questions, your joys, and the moments in between.</p></div><div><span>03</span><p><strong>Make a difference</strong>Carry the love of Jesus into your home and your community.</p></div></div><a class="text-link" href="#visit">There’s a place for you here ${arrow}</a></div>
     </div></section>
-    <section id="watch" class="container watch-section" aria-labelledby="watch-heading"><div><p class="eyebrow">A CONNECTION BEYOND SUNDAY</p><h2 id="watch-heading">Worship with us,<br><em>wherever you are.</em></h2><p>Whether you’re getting to know The Grove or joining us from home, there’s a way to stay connected.</p><span class="watch-time">SUNDAY WORSHIP · 10:30 AM EASTERN</span></div><div class="watch-links"><a class="watch-link" href="https://www.facebook.com/ingrovechurch"><span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m9 5 11 7-11 7V5Z" fill="currentColor"/></svg></span><span><strong>Watch our services</strong><small>Watch with us on Facebook</small></span>${externalArrow}</a><a class="watch-link" href="https://www.facebook.com/ingrovechurch"><span class="facebook-icon" aria-hidden="true">f</span><span><strong>Find us on Facebook</strong><small>Services, updates & community</small></span>${externalArrow}</a></div></section>
     <section id="visit" class="section container visit-section" aria-labelledby="visit-heading">
       <div class="visit-copy"><p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p><h2 id="visit-heading">We’d love to<br><em>meet you.</em></h2><p>New to church? Coming back after a while? Simply curious? You don’t have to have it all figured out to take the first step.</p><button class="button" type="button" data-open-guide>A little help for your first visit ${arrow}</button></div>
       <div class="visit-details"><div class="visit-detail"><span class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><div><h3>Gather with us</h3><p id="service-times">Service times will be shared here once confirmed.</p></div></div><div class="visit-detail"><span class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h3>Find The Grove</h3><p id="church-address">Our location details are being confirmed. Please check back before making a trip.</p><a id="directions-link" class="text-link" hidden>Get directions ${arrow}</a></div></div><div class="visit-detail contact-detail" hidden><span class="detail-icon" aria-hidden="true">${people}</span><div><h3>Say hello</h3><div id="contact-links"></div></div></div><div class="visit-footnote"><span class="caption-dot"></span><p>A warm welcome starts with good information.<br>Visit details will be updated here as they’re confirmed.</p></div></div>
@@ -60,7 +72,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <section class="faq-section container" aria-labelledby="faq-heading"><div><p class="eyebrow">A FEW THINGS YOU MIGHT BE WONDERING</p><h2 id="faq-heading">You’re not the only<br>one with <em>questions.</em></h2></div><div class="faq-list"><details><summary>Do I need to know much about the Bible?<span aria-hidden="true">+</span></summary><p>No. Whether you’re opening a Bible for the first time or have been reading for years, there’s always room to learn and grow.</p></details><details><summary>Can I come if I’m exploring faith?<span aria-hidden="true">+</span></summary><p>Yes. Bring your curiosity and your questions. You don’t need to have everything figured out to begin exploring who Jesus is.</p></details><details><summary>How can I plan a visit?<span aria-hidden="true">+</span></summary><p>Check the visit section above for confirmed service times and location details. Please wait for those details before making a trip.</p></details></div></section>
     <section class="closing-banner"><div class="container"><span aria-hidden="true">${sprout}</span><p>Put down roots.<br><em>See what grows.</em></p><a class="button button-light" href="#visit">Find your place at The Grove ${arrow}</a></div></section>
   </main>
-  <footer class="site-footer container"><a class="brand" href="#" aria-label="The Grove Baptist Church home"><span class="brand-mark">${sprout}</span><span class="brand-name">THE GROVE<span>BAPTIST CHURCH</span></span></a><p>Rooted in faith. Growing in love.</p><span>© ${new Date().getFullYear()} The Grove Baptist Church</span></footer>
+  <footer class="site-footer container"><a class="brand" href="#" aria-label="The Grove Baptist Church home"><span class="brand-name">THE GROVE<span>BAPTIST CHURCH</span></span></a><p>Rooted in faith. Growing in love.</p><span>© ${new Date().getFullYear()} The Grove Baptist Church</span></footer>
   <dialog class="visit-dialog" aria-labelledby="guide-heading"><div class="dialog-inner"><button class="dialog-close" type="button" aria-label="Close visit guide">×</button><span class="guide-sprout" aria-hidden="true">${sprout}</span><p class="eyebrow">A SIMPLE FIRST STEP</p><h2 id="guide-heading">Your first visit,<br><em>a little easier.</em></h2><p>You’re welcome to explore faith with us, just as you are.</p><ol><li><strong>Check the details.</strong><span id="guide-details">Service times and our location are still being confirmed. Please check this site again before you travel.</span></li><li><strong>Bring your questions.</strong><span>You don’t need to know all the answers to start a conversation about faith.</span></li><li><strong>Take it at your pace.</strong><span>Getting connected is a journey. Start by getting to know the heart of The Grove.</span></li></ol><button class="button guide-done" type="button">Back to the website ${arrow}</button></div></dialog>
 `;
 
@@ -138,3 +150,5 @@ if (church.email || church.phone) {
     }
   }
 }
+
+initializeBroadcast();
