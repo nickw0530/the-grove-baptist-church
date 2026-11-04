@@ -60,9 +60,10 @@ welcome image and background are real stills from the supplied service videos.
 ## Live and previous services
 
 `src/broadcast.ts` loads the supplied `https://js.boxcast.com/v3.min.js` widget
-for channel `rs1sn7iap6fgcn3nn8as`. The supplied embed options are retained,
-including `playlist-to-right`, related broadcasts, the next-video default,
-countdown, DVR, descriptions, documents, and donations. Chat is hidden because
+for channel `rs1sn7iap6fgcn3nn8as`. The player requests muted inline autoplay.
+BoxCast’s `past` mode selects a current service or the most recent recording,
+and the date-first archive omits future services and repeated thumbnails.
+The right-side playlist, DVR, descriptions, documents, and donations are enabled. Chat is hidden because
 its empty panel pushed the archive below the screen; the previous-service
 playlist now sits immediately beside the video. The player and playlist appear
 before the welcome and visit sections. No sample episodes, invented video titles,

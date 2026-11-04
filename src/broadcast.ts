@@ -1,16 +1,23 @@
 export const boxcastChannel = 'rs1sn7iap6fgcn3nn8as';
 
-// Supplied embed options, with chat hidden to keep the archive beside the screen.
+// BoxCast’s past mode lists current and archived services newest first.
 export const boxcastOptions = {
   showTitle: 1,
   showDescription: 1,
   showHighlights: 1,
   showRelated: true,
-  defaultVideo: 'next',
-  playInline: false,
+  defaultVideo: 'past',
+  autoplay: 'try-muted',
+  clapprConfig: { mute: true },
+  playInline: true,
+  messages: {
+    related_title: 'Service archive',
+    start_stop_description_past: '{0}',
+    start_stop_description_current: 'Live now · {0}',
+  },
   dvr: true,
   market: 'house-of-worship',
-  showCountdown: true,
+  showCountdown: false,
   showDonations: true,
   showDocuments: true,
   showIndex: true,

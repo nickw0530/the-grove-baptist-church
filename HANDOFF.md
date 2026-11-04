@@ -76,7 +76,8 @@ service has been set up. BoxCast's supplied interactive features are third party
 - Script: `https://js.boxcast.com/v3.min.js`.
 - Integration: `src/broadcast.ts`.
 - Main layout: `playlist-to-right`, with related broadcasts.
-- Default selection: the next scheduled broadcast.
+- Default selection: the live service when on air, otherwise the most recent recording.
+- The player requests muted inline autoplay. Archive rows lead with the broadcast date and omit thumbnails.
 - Facebook is the backup if the player cannot load.
 - The original full embed options were provided by Nick and are recorded in the
   integration. Chat is hidden so an empty panel does not push the previous-service

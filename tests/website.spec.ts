@@ -82,7 +82,12 @@ test('the supplied BoxCast channel loads with a player and previous-service play
   expect(call.options).toMatchObject({
     layout: 'playlist-to-right',
     showRelated: true,
-    defaultVideo: 'next',
+    defaultVideo: 'past',
+    autoplay: 'try-muted',
+    clapprConfig: { mute: true },
+    playInline: true,
+    showCountdown: false,
+    messages: { related_title: 'Service archive', start_stop_description_past: '{0}' },
   });
   await expect(page.getByRole('link', { name: 'View the service playlist', exact: true })).toHaveAttribute('href', '#watch');
 });

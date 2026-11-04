@@ -109,3 +109,53 @@ html{scroll-padding-top:145px}
 @media(max-width:840px){.hero .art-frame{height:390px}.featured-services{gap:19px}.episode-copy{padding:22px}.episode-copy h3{font-size:26px}}
 @media(max-width:600px){.hero .art-frame{height:330px}.hero .art-frame img{object-position:46% center}.featured-services{grid-template-columns:1fr;gap:23px;margin-top:5px}.episode-copy{padding:23px}.episode-copy h3{font-size:28px}.episode-copy>span{font-size:15px}.broadcast-section{background:linear-gradient(rgba(248,247,241,.93),rgba(248,247,241,.92)),url('/images/grove-sanctuary-background.webp') center top/auto 700px no-repeat}}
 .service-viewer .boxcast-title{letter-spacing:normal;font-family:Arial,Helvetica,sans-serif;line-height:1.4;font-size:18px}
+
+/* Keep BoxCast's accessible links, search and pagination. Lead each row with its service date. */
+.service-viewer .boxcast-playlist-item .boxcast-preview-icon {
+  display: none;
+}
+.service-viewer .boxcast-playlist-item:has(.boxcast-playlist-item-meta) {
+  min-height: 3.75rem;
+  margin: 2px 0;
+  padding: .6rem .8rem;
+  border: 1px solid transparent;
+  border-bottom-color: var(--line);
+  border-radius: 4px;
+}
+.service-viewer .boxcast-playlist-item-meta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+}
+.service-viewer .boxcast-playlist-item-meta p:last-child {
+  order: -1;
+  margin: 0 0 .2rem;
+  color: var(--forest);
+  font: 600 1.1rem/1.35 var(--serif);
+  white-space: normal;
+}
+.service-viewer .boxcast-playlist-item-meta h3,
+.service-viewer .boxcast-playlist-item-meta h3 a {
+  margin: 0;
+  color: var(--muted);
+  font: 400 .85rem/1.4 Arial, Helvetica, sans-serif;
+}
+.service-viewer .boxcast-playlist-item-meta p:empty {
+  display: none;
+}
+.service-viewer .boxcast-playlist-item-meta h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.service-viewer .boxcast-playlist-item.boxcast-selected,
+.service-viewer .boxcast-playlist-item:focus-within,
+.service-viewer .boxcast-playlist-item:hover {
+  background: #edf2e8;
+  border-color: #a8b89e;
+}
+.service-viewer .boxcast-playlist-item:focus-within {
+  outline: 2px solid var(--forest);
+  outline-offset: -2px;
+}
